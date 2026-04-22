@@ -9,9 +9,11 @@ import { getDb } from "./db";
 import { chatMessages, subscriptions, imageGenerations, contactRequests } from "../drizzle/schema";
 import { eq, desc, and } from "drizzle-orm";
 import { notifyOwner } from "./_core/notification";
+import { sallaRouter } from "./routers-salla";
 
 export const appRouter = router({
   system: systemRouter,
+  salla: sallaRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {

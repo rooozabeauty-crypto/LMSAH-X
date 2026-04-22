@@ -15,6 +15,13 @@
       "when": 1776874861769,
       "tag": "0001_bumpy_vision",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1776877038053,
+      "tag": "0002_long_kabuki",
+      "breakpoints": true
     }
   ]
 }

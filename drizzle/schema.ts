@@ -76,3 +76,58 @@ export const contactRequests = mysqlTable("contact_requests", {
 
 export type ContactRequest = typeof contactRequests.$inferSelect;
 export type InsertContactRequest = typeof contactRequests.$inferInsert;
+
+// جدول ربط سلة
+export const sallaIntegrations = mysqlTable("salla_integrations", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull().unique(),
+  sallaStoreId: varchar("sallaStoreId", { length: 128 }).notNull().unique(),
+  sallaAccessToken: text("sallaAccessToken").notNull(),
+  sallaRefreshToken: text("sallaRefreshToken"),
+  storeName: varchar("storeName", { length: 256 }),
+  storeEmail: varchar("storeEmail", { length: 320 }),
+  storePhone: varchar("storePhone", { length: 32 }),
+  isConnected: boolean("isConnected").default(false).notNull(),
+  lastSyncAt: timestamp("lastSyncAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type SallaIntegration = typeof sallaIntegrations.$inferSelect;
+export type InsertSallaIntegration = typeof sallaIntegrations.$inferInsert;
+
+// جدول منتجات سلة المخزنة
+export const sallaProducts = mysqlTable("salla_products", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  sallaProductId: bigint("sallaProductId", { mode: "number" }).notNull(),
+  productName: varchar("productName", { length: 256 }).notNull(),
+  productDescription: text("productDescription"),
+  price: int("price").notNull(),
+  quantity: int("quantity").default(0),
+  imageUrl: text("imageUrl"),
+  sallaUrl: text("sallaUrl"),
+  lastSyncAt: timestamp("lastSyncAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type SallaProduct = typeof sallaProducts.$inferSelect;
+export type InsertSallaProduct = typeof sallaProducts.$inferInsert;
+
+// جدول طلبات سلة المخزنة
+export const sallaOrders = mysqlTable("salla_orders", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  sallaOrderId: bigint("sallaOrderId", { mode: "number" }).notNull(),
+  customerName: varchar("customerName", { length: 256 }).notNull(),
+  customerEmail: varchar("customerEmail", { length: 320 }),
+  totalAmount: int("totalAmount").notNull(),
+  status: varchar("status", { length: 64 }).notNull(),
+  itemsCount: int("itemsCount").default(0),
+  orderDate: timestamp("orderDate"),
+  lastSyncAt: timestamp("lastSyncAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type SallaOrder = typeof sallaOrders.$inferSelect;
+export type InsertSallaOrder = typeof sallaOrders.$inferInsert;

@@ -17,6 +17,7 @@ import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import AdminPanel from "./pages/AdminPanel";
+import SallaIntegration from "./pages/SallaIntegration";
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/admin" component={AdminPanel} />
+      <Route path="/salla" component={SallaIntegration} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
