@@ -62,7 +62,7 @@ const services = [
 const plans = [
   {
     name: "الأساسية",
-    price: "300",
+    price: "599",
     period: "شهرياً",
     color: "border-blue-200",
     btnColor: "bg-blue-600 hover:bg-blue-700",
@@ -71,7 +71,7 @@ const plans = [
   },
   {
     name: "الاحترافية",
-    price: "680",
+    price: "999",
     period: "شهرياً",
     color: "border-purple-400",
     btnColor: "bg-purple-600 hover:bg-purple-700",
@@ -80,7 +80,7 @@ const plans = [
   },
   {
     name: "الأعمال",
-    price: "1500",
+    price: "2600",
     period: "شهرياً",
     color: "border-amber-400",
     btnColor: "gradient-gold text-white",
@@ -89,7 +89,7 @@ const plans = [
   },
   {
     name: "المؤسسية",
-    price: "2666",
+    price: "7600",
     period: "شهرياً",
     color: "border-yellow-500",
     btnColor: "bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white",
